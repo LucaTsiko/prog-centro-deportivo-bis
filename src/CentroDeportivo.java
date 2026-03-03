@@ -67,7 +67,7 @@ public class CentroDeportivo {
         Entrenador entrenador = null;
 
         for(int i = 0; i < NUM_MAX_ENTRENADORES && seguirBuscando; i++){
-            if(entrenadores[i].getId() == id){
+            if(entrenadores[i] != null && entrenadores[i].getId() == id){
                 entrenador =  entrenadores[i];
                 seguirBuscando = false;
             }
@@ -110,6 +110,33 @@ public class CentroDeportivo {
             }
         }
         return entrenadorRegistrado;
+    }
+
+    /**
+     * Devuelve una representación textual del catálogo completo.
+     *
+     * @return una cadena de texto con todos los libros almacenados.
+     */
+    public String mostrarEntrenadores(){
+        StringBuilder sb = new StringBuilder("Entrenadores: {");
+
+        for (int i = 0; i < NUM_MAX_ENTRENADORES; i++) {
+            if(entrenadores[i] != null){
+                sb.append(entrenadores[i].toString());
+            }
+        }
+        sb.append("}");
+        return sb.toString();
+    }
+
+    public int contarEntrenadores(){
+        int contador = 0;
+        for (int i = 0; i < NUM_MAX_ENTRENADORES; i++) {
+            if(entrenadores[i] != null){
+                contador++;
+            }
+        }
+        return contador;
     }
 
 

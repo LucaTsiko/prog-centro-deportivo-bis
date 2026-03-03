@@ -57,5 +57,22 @@ public class CentroDeportivo {
         return resultado;
     }
 
+    /**
+     *  Metodo para buscar un entrenador por su id.
+     * @param id Del Entrenador
+     * @return  El entrenador entero si lo encientra, si no nulo.
+     */
+    public Entrenador buscarEntrenador(int id){
+        boolean seguirBuscando = true;
+        Entrenador entrenador = null;
+
+        for(int i = 0; i < NUM_MAX_ENTRENADORES && seguirBuscando; i++){
+            if(entrenadores[i].getId() == id){
+                entrenador =  entrenadores[i];
+                seguirBuscando = false;
+            }
+        }
+        return entrenador;
+    }
 
 }

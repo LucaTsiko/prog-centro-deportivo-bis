@@ -10,4 +10,16 @@ public class Main {
 
     }
 
+    /**
+     * Pide al usuario la cantidad maxima de entrenadores
+     * @param cantidadMaximaEntrenadores es la cantidad de los entrenadores
+     * @return la cantidad de entrenadores proporcionada por el usuario
+     */
+    public static int pedirCantidadDeEntrenadores (int cantidadMaximaEntrenadores) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Ingresa una cantidad positiva de entrenadores:");
+        cantidadMaximaEntrenadores = sc.nextInt();
+
+        return cantidadMaximaEntrenadores;
+    }
 }

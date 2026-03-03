@@ -75,4 +75,42 @@ public class CentroDeportivo {
         return entrenador;
     }
 
+    /**
+     * Metodo que busca la primera posición libre en el array de los entrenadores.
+     * @return la primera posición libre del array entrenadores y si no hay -1.
+     */
+    private int buscarPrimerHuecoLibre(){
+        int posicion = -1;
+        boolean seguirBuscando = true;
+
+        for (int i = 0; i < NUM_MAX_ENTRENADORES && seguirBuscando; i++) {
+            if(entrenadores[i] == null) {
+                posicion = i;
+                seguirBuscando = false;
+            }
+        }
+        return posicion;
+    }
+
+    /**
+     * Metodo que registra a un entrenador en el primer hueco libre (si hay) antes asegurandose de que no esta ya añadido.
+     * @param entrenador El entrenador que queremos registrar.
+     * @return true si el entrenador ha sido añadido, false si no.
+     */
+    public boolean registrarEntrenador(Entrenador entrenador){
+        boolean entrenadorRegistrado = false;
+        int posicion;
+
+        posicion = buscarPrimerHuecoLibre();
+
+        if(buscarEntrenador(entrenador.getId()) == null){
+            if(posicion >= 0){
+                entrenadores[posicion] = entrenador;
+                entrenadorRegistrado = true;
+            }
+        }
+        return entrenadorRegistrado;
+    }
+
+
 }
